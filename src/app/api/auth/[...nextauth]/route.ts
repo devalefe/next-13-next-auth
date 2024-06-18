@@ -1,4 +1,4 @@
-import { autenticate } from "@/services/authenticate";
+import { authenticate } from "@/services/authenticate";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -16,7 +16,7 @@ export const authOptions: NextAuthOptions = {
       },
       authorize: async (credentials) => {
         const { email, password } = credentials!;
-        return autenticate({ email, password });
+        return authenticate({ email, password });
       },
     }),
   ],

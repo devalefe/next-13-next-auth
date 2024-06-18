@@ -5,7 +5,7 @@ type Params = {
   password: string;
 };
 
-export async function autenticate(params: Params): Promise<CustomUser | null> {
+export async function authenticate(params: Params): Promise<CustomUser | null> {
   const { email, password } = params;
 
   // simulando uma resposta de erro
