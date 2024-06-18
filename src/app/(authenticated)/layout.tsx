@@ -21,7 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex flex-1 flex-col">
-      <div className="flex h-16 items-center justify-between gap-3 bg-gray-50 px-3 py-2 shadow-xl">
+      <div className="z-50 flex h-16 items-center justify-between gap-3 bg-gray-50 px-3 py-2 shadow-md">
         <div className="flex items-center gap-3">
           <Image
             src={session.user.image}
