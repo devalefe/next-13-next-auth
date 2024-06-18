@@ -39,7 +39,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         <button
           onClick={() => signOut()}
-          className="rounded bg-black/90 px-3 py-1 text-gray-300 hover:bg-black hover:text-gray-50"
+          className="rounded bg-black/90 px-3 py-2 text-sm text-gray-300 hover:bg-black hover:text-gray-50"
         >
           Sair
         </button>
