@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -8,15 +7,13 @@ import { singInSchema, SignInSchema } from "../constants/sign-in.schema";
 import { useRouter } from "next/navigation";
 
 export const useSignInHook = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const router = useRouter();
 
   const {
     control,
     handleSubmit,
     setError,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<SignInSchema>({
     resolver: yupResolver(singInSchema),
     defaultValues: {
@@ -26,8 +23,6 @@ export const useSignInHook = () => {
   });
 
   const submit = handleSubmit(async ({ email, password }) => {
-    setIsSubmitting(true);
-
     const response = await signIn("credentials", {
       email,
       password,
@@ -42,8 +37,6 @@ export const useSignInHook = () => {
 
     setError("email", { message: message });
     setError("password", { message: message });
-
-    setIsSubmitting(false);
   });
 
   return {
