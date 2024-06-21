@@ -1,7 +1,8 @@
 "use client";
 
-import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { Loading } from "@/components/Loading";
 
 export default function App() {
   const { status } = useSession();
@@ -14,9 +15,5 @@ export default function App() {
     redirect("/signin");
   }
 
-  return (
-    <div className="flex flex-1 items-center justify-center">
-      <span>Loading...</span>
-    </div>
-  );
+  return <Loading />;
 }

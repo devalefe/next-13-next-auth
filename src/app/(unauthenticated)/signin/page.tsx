@@ -3,13 +3,11 @@
 import { Controller } from "react-hook-form";
 import { useSignInHook } from "@/app/(unauthenticated)/signin/hooks/use-sign-in.hook";
 import { signInFormInputs } from "@/app/(unauthenticated)/signin/constants/sign-in.inputs";
+import { SignIn } from "@phosphor-icons/react";
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
-import { useRouter } from "next/navigation";
 
 export default function Singin() {
-  const { back } = useRouter();
-
   const { control, errors, isSubmitting, submit } = useSignInHook();
 
   return (
@@ -45,7 +43,12 @@ export default function Singin() {
           />
         ))}
 
-        <Button text="Entrar" type="submit" disabled={isSubmitting} />
+        <Button
+          icon={<SignIn />}
+          text="Entrar"
+          type="submit"
+          disabled={isSubmitting}
+        />
       </form>
     </div>
   );
